@@ -1,0 +1,42 @@
+@let data = products$ | async;
+
+@if (isAdmin) {
+<button>Supprimer l'utilisateur</button>
+} @else {
+<p>Vous N'avez pas access</p>
+}
+
+<h3>NG style</h3>
+
+@if (data) {
+<div>
+    @for (product of data; track product.id; let i = $index; let isFirst = $first;let isLast = $last; let isEven =
+    $even; let isOdd = $odd) {
+    <div [ngStyle]="{'background-color': isEven ? 'gray' : 'white', 'font-size': '16px'}">{{i}} {{ product.name }}</div>
+    } @empty {
+    <div>La liste est vide</div>
+    }
+</div>
+} @else {
+<p>Aucun produit n'a été trouvé.</p>
+}
+
+<h3>NGCLASS</h3>
+
+@if (data) {
+<div>
+    @for (product of data; track product.id; let i = $index; let isFirst = $first;let isLast = $last; let isEven =
+    $even; let isOdd = $odd) {
+    <div [ngClass]="{'isEvenClass': isEven}">{{i}} {{ product.name }}</div>
+    } @empty {
+    <div>La liste est vide</div>
+    }
+</div>
+} @else {
+<p>Aucun produit n'a été trouvé.</p>
+}
+
+
+@if (data) {
+<p>{{data.length}}</p>
+}

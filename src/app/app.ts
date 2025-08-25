@@ -3,10 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { CounterA } from "./counter-a/counter-a";
 import { TemplateDrivenForm } from "./template-driven-form/template-driven-form";
 import { Conditionals } from "./conditionals/conditionals";
+import { NewSyntax } from "./new-syntax/new-syntax";
 
 @Component({
   selector: 'app-root',
-  imports: [CounterA, TemplateDrivenForm, Conditionals],
+  imports: [CounterA, TemplateDrivenForm, Conditionals, NewSyntax],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
