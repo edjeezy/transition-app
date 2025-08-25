@@ -1,1 +1,24 @@
-<p>template-driven-form works!</p>
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+  <div class="form-group">
+    <label for="name">Nom</label>
+    <input minlength="2" type="text" id="name" name="name" [(ngModel)]="user.name" required>
+    <!-- Le template génère la validation et les classes CSS (ng-valid, ng-invalid) -->
+    <div *ngIf="userForm.controls['name']?.invalid && userForm.controls['name']?.touched">
+      Le nom est requis.
+    </div>
+        <!-- Le template génère la validation et les classes CSS (ng-valid, ng-invalid) -->
+    <div *ngIf="userForm.controls['name']?.invalid && userForm.controls['name']?.errors?.['minlength']">
+      Le nom requiert au moins 2 characters
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" [(ngModel)]="user.email" required email>
+    <div *ngIf="userForm.controls['email']?.invalid && userForm.controls['email']?.touched">
+      L'email est requis et doit être valide.
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="!userForm.valid">Envoyer</button>
+</form>

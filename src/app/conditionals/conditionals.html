@@ -1,0 +1,20 @@
+<div *ngIf="isAdmin;then adminTrue;else noAdmin">
+</div>
+
+<ng-template #adminTrue>
+      <button>Supprimer l'utilisateur</button>
+</ng-template>
+<ng-template #noAdmin>
+    <p>Vous navez pas access a l'admin</p>
+</ng-template>
+
+
+<div *ngIf="products$ | async as products; else noProducts">
+  <div *ngFor="let product of products;trackBy: trackById; index as i; first as isFirst; last as isLast; odd as isOdd; even as IsEven">
+    <p>{{i}} {{ product.name }}  <span *ngIf="IsEven">- Paire</span> <span *ngIf="isOdd">- Impaire</span>  <span *ngIf="isFirst">- First</span>   <span *ngIf="isLast">- Last</span> </p>
+  </div>
+</div>
+
+<ng-template #noProducts>
+  <p>Aucun produit n'a été trouvé.</p>
+</ng-template>
