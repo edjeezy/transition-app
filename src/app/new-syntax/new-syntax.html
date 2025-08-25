@@ -40,3 +40,8 @@
 @if (data) {
 <p>{{data.length}}</p>
 }
+
+<div [style.font-size.px]="isAdmin ? 40 : 20" [style.background-color]="'red'">MA div a styliser</div>
+<div [class.isEvenClass]="data?.length">Ma div avec classe</div>
+
+<button (click)="changeStatus()">Changer Admin Status</button>

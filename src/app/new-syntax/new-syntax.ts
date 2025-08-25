@@ -50,4 +50,8 @@ export class NewSyntax {
   ]);
 
   products$ = this.productsSubject.asObservable();
+
+  changeStatus() {
+    this.isAdmin = !this.isAdmin;
+  }
 }
