@@ -1,0 +1,5 @@
+    <input 
+      type="text" 
+      placeholder="Filtrer les produits..."
+      [value]="query()"
+      (input)="query.set($event.target.value)">

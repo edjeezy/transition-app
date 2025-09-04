@@ -1,0 +1,16 @@
+    <h2>Liste de nos Produits</h2>
+    
+    <!-- On lie le signal `searchTerm` au `model` du composant enfant -->
+    <app-search-box [(query)]="searchTerm"></app-search-box>
+    
+    <div *ngIf="productService.isLoading()">Chargement...</div>
+    <div *ngIf="productService.getError()">Une erreur est survenue.</div>
+
+    <ul *ngIf="!productService.isLoading() && !productService.getError()">
+      <!-- On itère sur le signal `filteredProducts` qui est réactif -->
+      <li *ngFor="let product of filteredProducts()">
+        {{ product.name }}
+      </li>
+      <li *ngIf="filteredProducts().length === 0">Aucun produit ne correspond à votre recherche.</li>
+    </ul>
+    
