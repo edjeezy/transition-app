@@ -1,10 +1,11 @@
 import { AsyncPipe, NgClass, NgStyle } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { SignalInputOutput } from '../signal-input-output/signal-input-output';
 
 @Component({
   selector: 'app-new-syntax',
-  imports: [AsyncPipe, NgStyle, NgClass],
+  imports: [AsyncPipe, NgStyle, NgClass, SignalInputOutput],
   templateUrl: './new-syntax.html',
   styleUrl: './new-syntax.css',
 })

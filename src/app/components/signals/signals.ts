@@ -1,8 +1,9 @@
-import { AfterViewInit, Component, computed, effect, OnInit, signal, untracked, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, computed, effect, Input, OnInit, signal, untracked, ViewChild } from '@angular/core';
+import { SignalInputOutput } from "../../signal-input-output/signal-input-output";
 
 @Component({
   selector: 'app-signals',
-  imports: [],
+  imports: [SignalInputOutput],
   templateUrl: './signals.html',
   styleUrl: './signals.css'
 })
@@ -15,6 +16,7 @@ export class Signals implements OnInit, AfterViewInit {
   prenom = signal('Mouhamed');
   nom = signal('Mar')
 
+  
   // Computed Signals
   fullName = computed(() => `${this.prenom()} ${this.nom()}`);
   isNameTooLong = computed(() => this.fullName().length > 20);
