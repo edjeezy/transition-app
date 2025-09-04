@@ -1,3 +1,7 @@
 <div>
     Nom Complet: {{nom()}}
 </div>
+
+<button [disabled]="disabled()">
+    {{ disabled() ? 'Action non autorisée' : 'Cliquez ici' }}
+</button>
