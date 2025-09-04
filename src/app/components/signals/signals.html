@@ -10,3 +10,19 @@
     }
 </ul>
 <button (click)="addTask()">ADD TASK</button>
+
+<p #var>
+    {{fullName()}}
+</p>
+
+<div>
+    <p>Prénom : <input [value]="prenom()" (input)="prenom.set($event.target.value)"></p>
+    <p>Nom : <input [value]="nom()" (input)="nom.set($event.target.value)"></p>
+
+    <h3>Bonjour, {{ fullName() }} !</h3>
+    @if (isNameTooLong()) {
+
+        <p >Le nom complet est trop long.</p>
+    }
+
+</div>
