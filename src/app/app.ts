@@ -22,6 +22,8 @@ export class App implements OnInit, DoCheck, OnDestroy {
     console.log('do check')
   }
 
+
+
   increment() {
     this.value+= 1;
   }

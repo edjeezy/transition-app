@@ -1,5 +1,5 @@
 import { AsyncPipe, NgClass, NgStyle } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -9,7 +9,7 @@ import { BehaviorSubject } from 'rxjs';
   styleUrl: './new-syntax.css',
 })
 export class NewSyntax {
-  isAdmin = true;
+  isAdmin = signal(true);
 
   private productsSubject = new BehaviorSubject([
     {
@@ -50,8 +50,9 @@ export class NewSyntax {
   ]);
 
   products$ = this.productsSubject.asObservable();
+  example = ''
 
   changeStatus() {
-    this.isAdmin = !this.isAdmin;
+    this.isAdmin.set(!this.isAdmin());
   }
 }
