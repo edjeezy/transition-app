@@ -1,9 +1,10 @@
 import { AfterViewInit, Component, computed, effect, Input, OnInit, signal, untracked, ViewChild } from '@angular/core';
 import { SignalInputOutput } from "../../signal-input-output/signal-input-output";
+import { SignalViewchild } from "../../signal-viewchild/signal-viewchild";
 
 @Component({
   selector: 'app-signals',
-  imports: [SignalInputOutput],
+  imports: [SignalInputOutput, SignalViewchild],
   templateUrl: './signals.html',
   styleUrl: './signals.css'
 })

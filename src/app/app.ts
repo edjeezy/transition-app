@@ -12,18 +12,12 @@ import { Signals } from './components/signals/signals';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App implements OnInit, DoCheck, OnDestroy {
+export class App implements OnInit, OnDestroy {
   protected title = 'Bonjour'
   public value: number = 0;
   ngOnInit() {
     
   }
-
-  ngDoCheck(): void {
-    console.log('do check')
-  }
-
-
 
   increment() {
     this.value+= 1;
