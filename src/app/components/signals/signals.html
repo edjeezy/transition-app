@@ -1,0 +1,12 @@
+<h1>
+    {{count()}}
+</h1>
+
+<button (click)="increment()">+</button>
+<button (click)="decrement()">-</button>
+<ul>
+    @for (item of tasks(); track $index) {
+    <li>{{item}}</li>
+    }
+</ul>
+<button (click)="addTask()">ADD TASK</button>
