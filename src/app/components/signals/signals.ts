@@ -16,7 +16,7 @@ export class Signals implements OnInit, AfterViewInit {
   prenom = signal('Mouhamed');
   nom = signal('Mar')
 
-  
+
   // Computed Signals
   fullName = computed(() => `${this.prenom()} ${this.nom()}`);
   isNameTooLong = computed(() => this.fullName().length > 20);
@@ -58,5 +58,9 @@ export class Signals implements OnInit, AfterViewInit {
 
   addTask() {
     this.tasks.update(val => [...val, "Nouvelle Tache"])
+  }
+
+  onConfirmation(decision: boolean) {
+    console.log(`L'utilisateur a choisi : ${decision ? 'Oui' : 'Non'}`);
   }
 }

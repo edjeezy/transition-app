@@ -1,4 +1,4 @@
-import { Component, input, Input } from '@angular/core';
+import { Component, EventEmitter, input, Input, output, Output } from '@angular/core';
 
 @Component({
   selector: 'app-signal-input-output',
@@ -8,6 +8,7 @@ import { Component, input, Input } from '@angular/core';
 })
 export class SignalInputOutput {
   @Input() monnom!: string;
+  @Output() eventChange = new EventEmitter();
   simpleInput = input('Simple');
   nom = input.required<string>();
   // On accepte une chaîne ou un booléen, et on le transforme toujours en booléen.
@@ -19,4 +20,5 @@ export class SignalInputOutput {
     }
   });
 
+  readonly confirm = output<boolean>();
 }

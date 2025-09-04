@@ -5,3 +5,9 @@
 <button [disabled]="disabled()">
     {{ disabled() ? 'Action non autorisée' : 'Cliquez ici' }}
 </button>
+
+<div class="dialog">
+    <p>Voulez-vous vraiment continuer ?</p>
+    <button (click)="confirm.emit(true)">Oui, continuer</button>
+    <button (click)="confirm.emit(false)">Non, annuler</button>
+</div>
